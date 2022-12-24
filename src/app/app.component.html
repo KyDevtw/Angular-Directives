@@ -21,8 +21,19 @@
             {{even}}
           </li>
         </div>
+        <!-- 以下是 unless directive 練習-->
+        <!-- 需要 * 因為是直接改變 DOM 元素 -->
+        <div *appUnless="onlyOdd">
+          <li class="list-group-item" [ngClass]="{odd: even % 2 !== 0}" *ngFor="let even of evenNumbers">
+            {{even}}
+          </li>
+        </div>
       </ul>
       <p appBasicHighlight>Style me with basic directive!</p>
+      <!-- appBetterHighlight 同時用在 data binding 跟 directive, 不  binding 不用 [] -->
+      <!-- [defaultColor] 可以用 defaultColor 後方值 也只要用 "yellow" 取代 "'yellow'" , 但最好只用在 可以被完整辨識成 data binding 時-->
+      <p [appBetterHighlight]="'red'" [defaultColor]="'yellow'">Style me with better directive!</p>
+      <!-- 這裡的 ngIf 不用 * 因為不是直接更改 DOM 元素，而是用 ng-template 塞入 -->
       <ng-template [ngIf]="onlyOdd">
         <p>Only odd</p>
       </ng-template>
