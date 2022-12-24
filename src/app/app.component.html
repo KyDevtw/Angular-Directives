@@ -33,6 +33,13 @@
       <!-- appBetterHighlight 同時用在 data binding 跟 directive, 不  binding 不用 [] -->
       <!-- [defaultColor] 可以用 defaultColor 後方值 也只要用 "yellow" 取代 "'yellow'" , 但最好只用在 可以被完整辨識成 data binding 時-->
       <p [appBetterHighlight]="'red'" [defaultColor]="'yellow'">Style me with better directive!</p>
+      <!-- ngSwitch 用法 -->
+      <div [ngSwitch]="value" >
+        <p *ngSwitchCase="5">Value is 5</p>
+        <p *ngSwitchCase="10">Value is 10</p>
+        <p *ngSwitchCase="100">Value is 100</p>
+        <p *ngSwitchDefault>Value is Default</p>
+      </div>
       <!-- 這裡的 ngIf 不用 * 因為不是直接更改 DOM 元素，而是用 ng-template 塞入 -->
       <ng-template [ngIf]="onlyOdd">
         <p>Only odd</p>
